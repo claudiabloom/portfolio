@@ -634,24 +634,25 @@
     /* ── CURSOR ── */
     .cursor-dot {
       position: fixed;
-      width: 6px; height: 6px;
-      background: var(--black);
+      width: 18px; height: 18px;
+      background: radial-gradient(circle at center, #fff7a0 0%, #ffd700 30%, #ffa500 60%, rgba(255,140,0,0) 100%);
+      box-shadow: 0 0 12px 4px rgba(255, 210, 0, 0.5), 0 0 24px 8px rgba(255, 180, 0, 0.2);
       border-radius: 50%;
       pointer-events: none;
       z-index: 9999;
-      transition: transform 0.15s;
+      transition: transform 0.15s, width 0.3s, height 0.3s;
       transform: translate(-50%, -50%);
     }
     .cursor-ring {
       position: fixed;
-      width: 32px; height: 32px;
-      border: 1px solid var(--black);
+      width: 48px; height: 48px;
+      background: radial-gradient(circle at center, rgba(255,220,50,0.08) 0%, rgba(255,180,0,0.04) 50%, transparent 100%);
       border-radius: 50%;
       pointer-events: none;
       z-index: 9998;
-      transition: transform 0.35s ease, width 0.3s, height 0.3s, opacity 0.3s;
+      transition: transform 0.4s ease, width 0.3s, height 0.3s, opacity 0.3s;
       transform: translate(-50%, -50%);
-      opacity: 0.3;
+      opacity: 1;
     }
 
     /* ── RESPONSIVE ── */
@@ -965,7 +966,9 @@
         </p>
         <div class="contact-links">
           <a href="mailto:claudiaz@aiwithbloom.com" class="contact-link">
-            <div class="contact-link-icon">@</div>
+            <div class="contact-link-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+            </div>
             <div>
               <p class="contact-link-label">Email</p>
               <p class="contact-link-value">claudiaz@aiwithbloom.com</p>
@@ -1034,14 +1037,14 @@
     })();
     document.querySelectorAll('a, button, .photo-item, .design-item, .video-item').forEach(el => {
       el.addEventListener('mouseenter', () => {
-        dot.style.transform  = 'translate(-50%,-50%) scale(2)';
-        ring.style.width = ring.style.height = '56px';
-        ring.style.opacity = '0.15';
+        dot.style.transform  = 'translate(-50%,-50%) scale(1.6)';
+        ring.style.width = ring.style.height = '72px';
+        ring.style.opacity = '0.8';
       });
       el.addEventListener('mouseleave', () => {
         dot.style.transform  = 'translate(-50%,-50%) scale(1)';
-        ring.style.width = ring.style.height = '32px';
-        ring.style.opacity = '0.3';
+        ring.style.width = ring.style.height = '48px';
+        ring.style.opacity = '1';
       });
     });
 

@@ -1029,10 +1029,34 @@
       });
     });
 
-    // ── Video Autoplay (ensure all play on load) ──
+    // ── Video Autoplay — works on mobile via IntersectionObserver ──
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const vid = entry.target;
+        if (entry.isIntersecting) {
+          vid.play().catch(() => {});
+        } else {
+          vid.pause();
+        }
+      });
+    }, { threshold: 0.2 });
+
     document.querySelectorAll('.video-thumb video').forEach(vid => {
+      vid.muted = true;
+      vid.playsInline = true;
+      vid.setAttribute('playsinline', '');
+      vid.setAttribute('muted', '');
+      videoObserver.observe(vid);
       vid.play().catch(() => {});
     });
+
+    // iOS requires a touch interaction — unlock all videos on first touch
+    document.addEventListener('touchstart', function unlockVideos() {
+      document.querySelectorAll('.video-thumb video').forEach(vid => {
+        vid.play().catch(() => {});
+      });
+      document.removeEventListener('touchstart', unlockVideos);
+    }, { once: true });
 
     // ── Scroll Reveal ──
     const observer = new IntersectionObserver(entries => {

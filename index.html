@@ -465,6 +465,23 @@
     }
     .design-item:hover .design-arrow { transform: translateX(4px); opacity: 1; }
 
+    .contact-socials {
+      display: flex;
+      gap: 2rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-social-link {
+      font-size: 0.52rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.25s;
+    }
+    .contact-social-link:hover { color: var(--black); }
+
     /* ── QUOTE ── */
     .quote-section {
       padding: 7rem 3rem;
@@ -955,30 +972,11 @@
             </div>
             <span class="contact-link-arrow">↗</span>
           </a>
-          <a href="https://www.instagram.com/aiwithbloom/" class="contact-link" target="_blank">
-            <div class="contact-link-icon">◎</div>
-            <div>
-              <p class="contact-link-label">Instagram</p>
-              <p class="contact-link-value">@aiwithbloom</p>
-            </div>
-            <span class="contact-link-arrow">↗</span>
-          </a>
-          <a href="https://www.linkedin.com/in/claudia-zaragoza-962a3091/" class="contact-link" target="_blank">
-            <div class="contact-link-icon">in</div>
-            <div>
-              <p class="contact-link-label">LinkedIn</p>
-              <p class="contact-link-value">Claudia Zaragoza</p>
-            </div>
-            <span class="contact-link-arrow">↗</span>
-          </a>
-          <a href="https://www.behance.net/claudiabloom" class="contact-link" target="_blank">
-            <div class="contact-link-icon">Be</div>
-            <div>
-              <p class="contact-link-label">Behance</p>
-              <p class="contact-link-value">claudiabloom</p>
-            </div>
-            <span class="contact-link-arrow">↗</span>
-          </a>
+          <div class="contact-socials">
+            <a href="https://www.instagram.com/aiwithbloom/" class="contact-social-link" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/in/claudia-zaragoza-962a3091/" class="contact-social-link" target="_blank">LinkedIn</a>
+            <a href="https://www.behance.net/claudiabloom" class="contact-social-link" target="_blank">Behance</a>
+          </div>
         </div>
       </div>
       <form class="contact-form" onsubmit="handleSubmit(event)">
